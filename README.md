@@ -18,11 +18,11 @@ and DELETE (for delete).
 
 TOC
 ---
-[1- Entry Point](#1-entry-point) <br/>
-[2- Repository](#2-repository) <br/>
-[3- Using Config Manager](#3-using-config-manager) <br/>
-[4- Logging](#4-logging) <br/>
-[5- Testing And Incoming Outgoing JSON Samples](#5-testing-and-incoming-outgoing-json-samples) <br/>
+[1 Entry Point](#1-entry-point) <br/>
+[2 Repository](#2-repository) <br/>
+[3 Using Config Manager](#3-using-config-manager) <br/>
+[4 Logging](#4-logging) <br/>
+[5 Testing And Incoming Outgoing JSON Samples](#5-testing-and-incoming-outgoing-json-samples) <br/>
 [5-a- Test Web Service](#5-a-test-web-service) <br/>
 [5-b- Retrieve All Customer Collection](#5-b-retrieve-all-customer-collection) <br/>
 [5-c- Retrieve Customer](#5-c-retrieve-customer) <br/>
@@ -30,7 +30,7 @@ TOC
 [5-e- Update Customer](#5-e-update-customer) <br/>
 [5-f- Delete Customer](#5-f-delete-customer) <br/>
 
-1- Entry Point
+1 Entry Point
 --------------
 Starting grizzly standalone web server is quite easy. First you have to create a simple instance of
 Server that which you configure the controller packages and the URI of your server. You can check
@@ -46,7 +46,7 @@ There are two main straight-forward classes that you have to understand how an H
 
 [Go back to TOC](#toc)
 
-2- Repository
+2 Repository
 -------------
 Any repository implementation regardless of the storage (File, Socket, Database) must have the following basic operations;
 
@@ -79,7 +79,7 @@ for any arbitrary model;
 
 [Go back to TOC](#toc)
 
-3- Using Config Manager
+3 Using Config Manager
 -----------------------
 The configuration must always abstracted via a properties file. But in order to do so, the property file(s)
 must be read via a configuration manager. I've created my own configuration manager and actually it is a
@@ -134,7 +134,7 @@ endpoint_uri=http://0.0.0.0:8080
 
 [Go back to TOC](#toc)
 
-4- Logging
+4 Logging
 ----------
 The project uses Apache Log4J. If you want to change the version, simply you can modify it on the [POM file](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/pom.xml).
 Log4J also needs to find it's properties file, which is also defined inside the ConfigManager.
@@ -168,7 +168,7 @@ log4j.appender.rollingfile.File=D:/CONFIG_BASE/application.log
 
 [Go back to TOC](#toc)
 
-5- Testing And Incoming Outgoing JSON Samples
+5 Testing And Incoming Outgoing JSON Samples
 ---------------------------------------------
 
 5-a Test Web Service
