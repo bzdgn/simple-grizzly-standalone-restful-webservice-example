@@ -18,17 +18,17 @@ and DELETE (for delete).
 
 TOC
 ---
-[1 Entry Point](#1-entry-point) <br/>
-[2 Repository](#2-repository) <br/>
-[3 Using Config Manager](#3-using-config-manager) <br/>
-[4 Logging](#4-logging) <br/>
-[5 Testing And Incoming Outgoing JSON Samples](#5-testing-and-incoming-outgoing-json-samples) <br/>
-[5-a- Test Web Service](#5-a-test-web-service) <br/>
-[5-b- Retrieve All Customer Collection](#5-b-retrieve-all-customer-collection) <br/>
-[5-c- Retrieve Customer](#5-c-retrieve-customer) <br/>
-[5-d- Create Customer](#5-d-create-customer) <br/>
-[5-e- Update Customer](#5-e-update-customer) <br/>
-[5-f- Delete Customer](#5-f-delete-customer) <br/>
+- [1 Entry Point](#1-entry-point) <br/>
+- [2 Repository](#2-repository) <br/>
+- [3 Using Config Manager](#3-using-config-manager) <br/>
+- [4 Logging](#4-logging) <br/>
+- [5 Testing And Incoming Outgoing JSON Samples](#5-testing-and-incoming-outgoing-json-samples) <br/>
+  * [5-a- Test Web Service](#5-a-test-web-service) <br/>
+  * [5-b- Retrieve All Customer Collection](#5-b-retrieve-all-customer-collection) <br/>
+  * [5-c- Retrieve Customer](#5-c-retrieve-customer) <br/>
+  * [5-d- Create Customer](#5-d-create-customer) <br/>
+  * [5-e- Update Customer](#5-e-update-customer) <br/>
+  * [5-f- Delete Customer](#5-f-delete-customer) <br/>
 
 1 Entry Point
 --------------
