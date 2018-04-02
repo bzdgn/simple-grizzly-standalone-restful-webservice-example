@@ -239,6 +239,7 @@ Response Output;
 ```
 
 Sample Capture;
+
 ![capture-for-retrieve-all](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/ScreenShots/02_RETRIEVE_ALL_CUSTOMERS.PNG)
 
 [Go back to Section 5](#5-testing-and-incoming-outgoing-json-samples) <br/>
@@ -273,6 +274,7 @@ Response Output;
 ```
 
 Sample Capture;
+
 ![capture-for-retrieve-single-customer](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/ScreenShots/03_RETRIEVE_SINGLE_CUSTOMER.PNG)
 
 [Go back to Section 5](#5-testing-and-incoming-outgoing-json-samples) <br/>
@@ -366,6 +368,7 @@ Final Collection;
 ```
 
 Sample Capture;
+
 ![capture-for-create-customer-a](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/ScreenShots/04_A_CREATE_CUSTOMER.PNG)
 ![capture-for-create-customer-b](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/ScreenShots/04_B_CREATE_CUSTOMER.PNG)
 
@@ -458,6 +461,7 @@ Final Collection;
 ```
 
 Sample Capture;
+
 ![capture-for-update-customer-a](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/ScreenShots/05_A_UPDATE_CUSTOMER.PNG)
 ![capture-for-update-customer-b](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/ScreenShots/05_B_UPDATE_CUSTOMER.PNG)
 
@@ -523,6 +527,7 @@ Final Collection;
 ```
 
 Sample Capture;
+
 ![capture-for-delete-customer-a](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/ScreenShots/06_A_DELETE_CUSTOMER.PNG)
 ![capture-for-delete-customer-b](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/ScreenShots/06_B_DELETE_CUSTOMER.PNG)
 
