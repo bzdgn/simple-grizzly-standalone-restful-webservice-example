@@ -20,7 +20,7 @@ public class EntryPoint {
 	}
 	
 	private static void printConfiguration() {
-		System.out.println(ConfigManager.config());
+//		System.out.println(ConfigManager.config());		For debug usage
 		log.info(ConfigManager.config());
 	}
 
