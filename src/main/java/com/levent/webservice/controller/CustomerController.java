@@ -1,4 +1,4 @@
-package com.levent.webservice.controller.impl;
+package com.levent.webservice.controller;
 
 import java.util.List;
 

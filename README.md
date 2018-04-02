@@ -22,6 +22,7 @@ TOC
 2- [Repository](#repository) <br/>
 3- [Using Config Manager](#using-config-manager) <br/>
 4- [Logging](#logging) <br/>
+5- [Testing And Incoming Outgoing JSON Samples](#testing-and-incoming-outgoing-json-samples) <br/>
 
 Entry Point
 -----------
@@ -95,24 +96,402 @@ That's all. Then you can get your configuration parameters easily from any class
 
 To set up the environmental variable in windows, simply follow these steps;
 
-1. 
+1. Follow the following steps and define your enrivonmental variable;
+![environmental-variable-setup-up-in-windows](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/ScreenShots/ENV_VAR_01.PNG)
+
+2. Put your properties file as below in the designated folder in the environmental variable;
+![properties-files](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/ScreenShots/ENV_VAR_02.PNG)
+
+And how do we define the name of the environmental variable and name of the properties file. We can not define
+it in another properties file and it will be nonsense. That's why I've hardcoded the name of the properties file
+in the ConfigManager. Environmental Variable is set to "CUSTOMER_API_CONFIG" by default, and also the properties
+file set to "customer_api.properties" by default. 
+
+If you want to change these two hardcoded names, you can set them in the static inner Config class which
+is in the ConfigManager. The following code part is where the two hardcoded names are set;
+
+```
+private static class Config {
+	
+	private static final String 			ENVIRONMENT_VAR_NAME	= "CUSTOMER_API_CONFIG";
+	public static final String 				CONFIG_FILE_NAME 		= "customer_api.properties";
+	private static final String 			RESOURCE_DIR;
+	private Properties
+```
+
+Lastly, I've put a sample customer_api.properties file on the top level folder. The location of the rolling log file
+is defined there. You can check out the config snippet down below;
+
+```
+endpoint_uri=http://0.0.0.0:8080
+```
 
 [Go back to TOC](#toc)
 
 Logging
 -------
-Placeholder
-Placeholder
-Placeholder
-Placeholder
-Placeholder
-Placeholder
-Placeholder
-Placeholder
-Placeholder
-Placeholder
-Placeholder
-Placeholder
-Placeholder
+The project uses Apache Log4J. If you want to change the version, simply you can modify it on the [POM file](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/pom.xml).
+Log4J also needs to find it's properties file, which is also defined inside the ConfigManager.
+
+For the simplicity, I've set it to the same folder we use for the config files. Check out the
+code snippet taken from ConfigManager;
+
+```
+	private ConfigManager() {
+		Config config = new Config(Config.CONFIG_FILE_NAME);
+		
+		// RESOURCE AND LOG
+		RESOURCE_DIRECTORY			= Config.RESOURCE_DIR;
+		LOG4J_PROPERTIES			= RESOURCE_DIRECTORY + "/log4j.properties";
+		
+		ENDPOINT_URI				= config.getProperty("endpoint_uri");
+	}
+```
+
+But if you want to define it configurable, simply create a new variable in the ConfigManager class
+so that you can configure it via the configuration file.
+
+I've put a sample logj4.properties file on the top level folder. The location of the rolling log file
+is defined there. You can check out the config snippet down below;
+
+```
+#Set your target folder configuration in here
+log4j.appender.rollingfile.File=D:/CONFIG_BASE/application.log
+```
+
 
 [Go back to TOC](#toc)
+
+Testing And Incoming Outgoing JSON Samples
+------------------------------------------
+1. Test Web Service
+
+Method:          GET
+Tool:            Web Browser
+Link:            http://localhost:8080/customer-api/test
+Response Format: "text/plain"
+Response Output;
+```
+customer-api is working.
+```
+
+Sample Capture;
+![capture-for-test](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/ScreenShots/01_TEST.PNG)
+
+
+
+2. Retrieve All Customer Collection
+
+Method:          GET
+Tool:            Web Browser
+Link:            http://localhost:8080/customer-api/customers
+Response Format: "application/json"
+Response Output;
+```
+{
+	"data": {
+		"customers": [{
+			"age": 31,
+			"firstName": "Levent",
+			"id": 1,
+			"lastName": "Divilioglu",
+			"regular": true
+		},
+		{
+			"age": 44,
+			"firstName": "John",
+			"id": 2,
+			"lastName": "Doe",
+			"regular": false
+		},
+		{
+			"age": 24,
+			"firstName": "Jane",
+			"id": 3,
+			"lastName": "Doe",
+			"regular": true
+		},
+		{
+			"age": 66,
+			"firstName": "Fawn",
+			"id": 4,
+			"lastName": "Smith",
+			"regular": false
+		}]
+	},
+	"meta": {
+		"successful": true
+	}
+}
+```
+
+Sample Capture;
+![capture-for-retrieve-all](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/ScreenShots/02_RETRIEVE_ALL_CUSTOMERS.PNG)
+
+
+
+3. Retrieve Customer
+
+Method:          GET
+Tool:            Web Browser
+Link:            http://localhost:8080/customer-api/customers/1
+Response Format: "application/json"
+Response Output;
+
+```
+{
+	"data": {
+		"customers": [{
+			"age": 31,
+			"firstName": "Levent",
+			"id": 1,
+			"lastName": "Divilioglu",
+			"regular": true
+		}]
+	},
+	"meta": {
+		"successful": true
+	}
+}
+```
+
+Sample Capture;
+![capture-for-retrieve-single-customer](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/ScreenShots/03_RETRIEVE_SINGLE_CUSTOMER.PNG)
+
+
+4. Create Customer
+
+Method:          POST
+Tool:            Postman
+Link:            http://localhost:8080/customer-api/customers
+Consume  Format: "application/json"
+Response Format: "application/json"
+Request Input;
+```
+{
+    "age": 99,
+    "firstName": "Bob",
+    "id": 12345,
+    "lastName": "Immortal",
+    "regular": true
+}
+```
+
+Response Output;
+```
+{
+    "data": {
+        "customers": [
+            {
+                "age": 99,
+                "firstName": "Bob",
+                "id": 12345,
+                "lastName": "Immortal",
+                "regular": true
+            }
+        ]
+    },
+    "meta": {
+        "successful": true
+    }
+}
+```
+
+Final Collection;
+```
+{
+	"data": {
+		"customers": [{
+			"age": 31,
+			"firstName": "Levent",
+			"id": 1,
+			"lastName": "Divilioglu",
+			"regular": true
+		},
+		{
+			"age": 44,
+			"firstName": "John",
+			"id": 2,
+			"lastName": "Doe",
+			"regular": false
+		},
+		{
+			"age": 24,
+			"firstName": "Jane",
+			"id": 3,
+			"lastName": "Doe",
+			"regular": true
+		},
+		{
+			"age": 66,
+			"firstName": "Fawn",
+			"id": 4,
+			"lastName": "Smith",
+			"regular": false
+		},
+		{
+			"age": 99,
+			"firstName": "Bob",
+			"id": 5,
+			"lastName": "Immortal",
+			"regular": true
+		}]
+	},
+	"meta": {
+		"successful": true
+	}
+}
+```
+
+Sample Capture;
+![capture-for-create-customer-a](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/ScreenShots/04_A_CREATE_CUSTOMER.PNG)
+![capture-for-create-customer-b](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/ScreenShots/04_B_CREATE_CUSTOMER.PNG)
+
+
+
+5. Update Customer
+
+Method:          PUT
+Tool:            Postman
+Link:            http://localhost:8080/customer-api/customers
+Consume  Format: "application/json"
+Response Format: "application/json"
+Request Input;
+```
+{
+	"age": 66,
+	"firstName": "Johnny B.",
+	"id": 345345,
+	"lastName": "Goode",
+	"regular": true
+}
+```
+
+Response Output;
+```
+{
+	"data": {
+		"customers": [{
+			"age": 66,
+			"firstName": "Johnny B.",
+			"id": 2,
+			"lastName": "Goode",
+			"regular": true
+		}]
+	},
+	"meta": {
+		"successful": true
+	}
+}
+```
+
+Final Collection;
+```
+{
+	"data": {
+		"customers": [{
+			"age": 31,
+			"firstName": "Levent",
+			"id": 1,
+			"lastName": "Divilioglu",
+			"regular": true
+		},
+		{
+			"age": 66,
+			"firstName": "Johnny B.",
+			"id": 2,
+			"lastName": "Goode",
+			"regular": true
+		},
+		{
+			"age": 24,
+			"firstName": "Jane",
+			"id": 3,
+			"lastName": "Doe",
+			"regular": true
+		},
+		{
+			"age": 66,
+			"firstName": "Fawn",
+			"id": 4,
+			"lastName": "Smith",
+			"regular": false
+		},
+		{
+			"age": 99,
+			"firstName": "Bob",
+			"id": 5,
+			"lastName": "Immortal",
+			"regular": true
+		}]
+	},
+	"meta": {
+		"successful": true
+	}
+}
+```
+
+Sample Capture;
+![capture-for-update-customer-a](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/ScreenShots/05_A_UPDATE_CUSTOMER.PNG)
+![capture-for-update-customer-b](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/ScreenShots/05_B_UPDATE_CUSTOMER.PNG)
+
+
+
+6. Delete Customer
+
+Method:          DELETE
+Tool:            Postman
+Link:            http://localhost:8080/customer-api/customers/4
+Response Format: "application/json"
+
+Response Output;
+```
+{
+	"meta": {
+		"successful": true
+	}
+}
+```
+
+Final Collection;
+```
+{
+	"data": {
+		"customers": [{
+			"age": 31,
+			"firstName": "Levent",
+			"id": 1,
+			"lastName": "Divilioglu",
+			"regular": true
+		},
+		{
+			"age": 66,
+			"firstName": "Johnny B.",
+			"id": 2,
+			"lastName": "Goode",
+			"regular": true
+		},
+		{
+			"age": 24,
+			"firstName": "Jane",
+			"id": 3,
+			"lastName": "Doe",
+			"regular": true
+		},
+		{
+			"age": 99,
+			"firstName": "Bob",
+			"id": 5,
+			"lastName": "Immortal",
+			"regular": true
+		}]
+	},
+	"meta": {
+		"successful": true
+	}
+}
+```
+
+Sample Capture;
+![capture-for-delete-customer-a](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/ScreenShots/06_A_DELETE_CUSTOMER.PNG)
+![capture-for-delete-customer-b](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/ScreenShots/06_B_DELETE_CUSTOMER.PNG)
