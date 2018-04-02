@@ -18,14 +18,20 @@ and DELETE (for delete).
 
 TOC
 ---
-1- [Entry Point](#entry-point) <br/>
-2- [Repository](#repository) <br/>
-3- [Using Config Manager](#using-config-manager) <br/>
-4- [Logging](#logging) <br/>
-5- [Testing And Incoming Outgoing JSON Samples](#testing-and-incoming-outgoing-json-samples) <br/>
+[1- Entry Point](#1-entry-point) <br/>
+[2- Repository](#2-repository) <br/>
+[3- Using Config Manager](#3-using-config-manager) <br/>
+[4- Logging](#4-logging) <br/>
+[5- Testing And Incoming Outgoing JSON Samples](#5-testing-and-incoming-outgoing-json-samples) <br/>
+[5-1 Test Web Service](#5-1-test-web-service) <br/>
+[5-2 Retrieve All Customer Collection](#5-2-retrieve-all-customer-collection) <br/>
+[5-3 Retrieve Customer](#5-3-retrieve-customer) <br/>
+[5-4 Create Customer](#5-4-create-customer) <br/>
+[5-5 Update Customer](#5-5-update-customer) <br/>
+[5-6 Delete Customer](#5-6-delete-customer) <br/>
 
-Entry Point
------------
+1- Entry Point
+--------------
 Starting grizzly standalone web server is quite easy. First you have to create a simple instance of
 Server that which you configure the controller packages and the URI of your server. You can check
 out the [Server](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/src/main/java/com/levent/webservice/main/Server.java) class and the [EntryPoint](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/src/main/java/com/levent/webservice/main/EntryPoint.java), it's pretty straight forward.
@@ -40,8 +46,8 @@ There are two main straight-forward classes that you have to understand how an H
 
 [Go back to TOC](#toc)
 
-Repository
-----------
+2- Repository
+-------------
 Any repository implementation regardless of the storage (File, Socket, Database) must have the following basic operations;
 
 1. ```T find(long id)```
@@ -73,8 +79,8 @@ for any arbitrary model;
 
 [Go back to TOC](#toc)
 
-Using Config Manager
---------------------
+3- Using Config Manager
+-----------------------
 The configuration must always abstracted via a properties file. But in order to do so, the property file(s)
 must be read via a configuration manager. I've created my own configuration manager and actually it is a
 simple example of [Gang Of Four Singleton Design Pattern](https://en.wikipedia.org/wiki/Singleton_pattern).
@@ -128,8 +134,8 @@ endpoint_uri=http://0.0.0.0:8080
 
 [Go back to TOC](#toc)
 
-Logging
--------
+4- Logging
+----------
 The project uses Apache Log4J. If you want to change the version, simply you can modify it on the [POM file](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/pom.xml).
 Log4J also needs to find it's properties file, which is also defined inside the ConfigManager.
 
@@ -162,9 +168,11 @@ log4j.appender.rollingfile.File=D:/CONFIG_BASE/application.log
 
 [Go back to TOC](#toc)
 
-Testing And Incoming Outgoing JSON Samples
-------------------------------------------
-1. Test Web Service
+5- Testing And Incoming Outgoing JSON Samples
+---------------------------------------------
+
+5-1 Test Web Service
+--------------------
 
 Method:          GET
 Tool:            Web Browser
@@ -180,7 +188,8 @@ Sample Capture;
 
 
 
-2. Retrieve All Customer Collection
+5-2 Retrieve All Customer Collection
+------------------------------------
 
 Method:          GET
 Tool:            Web Browser
@@ -230,7 +239,8 @@ Sample Capture;
 
 
 
-3. Retrieve Customer
+5-3 Retrieve Customer
+---------------------
 
 Method:          GET
 Tool:            Web Browser
@@ -259,7 +269,8 @@ Sample Capture;
 ![capture-for-retrieve-single-customer](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/ScreenShots/03_RETRIEVE_SINGLE_CUSTOMER.PNG)
 
 
-4. Create Customer
+5-4 Create Customer
+-------------------
 
 Method:          POST
 Tool:            Postman
@@ -349,7 +360,8 @@ Sample Capture;
 
 
 
-5. Update Customer
+5-5 Update Customer
+-------------------
 
 Method:          PUT
 Tool:            Postman
@@ -437,7 +449,8 @@ Sample Capture;
 
 
 
-6. Delete Customer
+5-6 Delete Customer
+-------------------
 
 Method:          DELETE
 Tool:            Postman
@@ -495,3 +508,5 @@ Final Collection;
 Sample Capture;
 ![capture-for-delete-customer-a](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/ScreenShots/06_A_DELETE_CUSTOMER.PNG)
 ![capture-for-delete-customer-b](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/ScreenShots/06_B_DELETE_CUSTOMER.PNG)
+
+[Go back to TOC](#toc)
