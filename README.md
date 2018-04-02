@@ -174,10 +174,10 @@ log4j.appender.rollingfile.File=D:/CONFIG_BASE/application.log
 5-a Test Web Service
 --------------------
 
-Method:          GET
-Tool:            Web Browser
-Link:            http://localhost:8080/customer-api/test
-Response Format: "text/plain"
+Method:          GET <br/>
+Tool:            Web Browser <br/>
+Link:            http://localhost:8080/customer-api/test <br/>
+Response Format: "text/plain" <br/>
 Response Output;
 ```
 customer-api is working.
@@ -194,10 +194,10 @@ Sample Capture;
 5-b Retrieve All Customer Collection
 ------------------------------------
 
-Method:          GET
-Tool:            Web Browser
-Link:            http://localhost:8080/customer-api/customers
-Response Format: "application/json"
+Method:          GET <br/>
+Tool:            Web Browser <br/>
+Link:            http://localhost:8080/customer-api/customers <br/>
+Response Format: "application/json" <br/>
 Response Output;
 ```
 {
@@ -248,10 +248,10 @@ Sample Capture;
 5-c Retrieve Customer
 ---------------------
 
-Method:          GET
-Tool:            Web Browser
-Link:            http://localhost:8080/customer-api/customers/1
-Response Format: "application/json"
+Method:          GET <br/>
+Tool:            Web Browser <br/>
+Link:            http://localhost:8080/customer-api/customers/1 <br/>
+Response Format: "application/json" <br/>
 Response Output;
 
 ```
@@ -282,11 +282,11 @@ Sample Capture;
 5-d Create Customer
 -------------------
 
-Method:          POST
-Tool:            Postman
-Link:            http://localhost:8080/customer-api/customers
-Consume  Format: "application/json"
-Response Format: "application/json"
+Method:          POST <br/>
+Tool:            Postman <br/>
+Link:            http://localhost:8080/customer-api/customers <br/>
+Consume  Format: "application/json" <br/>
+Response Format: "application/json" <br/>
 Request Input;
 ```
 {
@@ -376,11 +376,11 @@ Sample Capture;
 5-e Update Customer
 -------------------
 
-Method:          PUT
-Tool:            Postman
-Link:            http://localhost:8080/customer-api/customers
-Consume  Format: "application/json"
-Response Format: "application/json"
+Method:          PUT <br/>
+Tool:            Postman <br/>
+Link:            http://localhost:8080/customer-api/customers <br/>
+Consume  Format: "application/json" <br/>
+Response Format: "application/json" <br/>
 Request Input;
 ```
 {
@@ -468,10 +468,10 @@ Sample Capture;
 5-f Delete Customer
 -------------------
 
-Method:          DELETE
-Tool:            Postman
-Link:            http://localhost:8080/customer-api/customers/4
-Response Format: "application/json"
+Method:          DELETE <br/>
+Tool:            Postman <br/>
+Link:            http://localhost:8080/customer-api/customers/4 <br/>
+Response Format: "application/json" <br/>
 
 Response Output;
 ```
