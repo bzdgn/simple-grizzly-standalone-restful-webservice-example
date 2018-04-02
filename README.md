@@ -23,12 +23,12 @@ TOC
 [3- Using Config Manager](#3-using-config-manager) <br/>
 [4- Logging](#4-logging) <br/>
 [5- Testing And Incoming Outgoing JSON Samples](#5-testing-and-incoming-outgoing-json-samples) <br/>
-[5-1 Test Web Service](#5-1-test-web-service) <br/>
-[5-2 Retrieve All Customer Collection](#5-2-retrieve-all-customer-collection) <br/>
-[5-3 Retrieve Customer](#5-3-retrieve-customer) <br/>
-[5-4 Create Customer](#5-4-create-customer) <br/>
-[5-5 Update Customer](#5-5-update-customer) <br/>
-[5-6 Delete Customer](#5-6-delete-customer) <br/>
+[5-a- Test Web Service](#5-a-test-web-service) <br/>
+[5-b- Retrieve All Customer Collection](#5-b-retrieve-all-customer-collection) <br/>
+[5-c- Retrieve Customer](#5-c-retrieve-customer) <br/>
+[5-d- Create Customer](#5-d-create-customer) <br/>
+[5-e- Update Customer](#5-e-update-customer) <br/>
+[5-f- Delete Customer](#5-f-delete-customer) <br/>
 
 1- Entry Point
 --------------
@@ -171,7 +171,7 @@ log4j.appender.rollingfile.File=D:/CONFIG_BASE/application.log
 5- Testing And Incoming Outgoing JSON Samples
 ---------------------------------------------
 
-5-1 Test Web Service
+5-a Test Web Service
 --------------------
 
 Method:          GET
@@ -186,9 +186,12 @@ customer-api is working.
 Sample Capture;
 ![capture-for-test](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/ScreenShots/01_TEST.PNG)
 
+[Go back to: Section 5](#5-testing-and-incoming-outgoing-json-samples)
+[Go back to TOC](#toc)
 
 
-5-2 Retrieve All Customer Collection
+
+5-b Retrieve All Customer Collection
 ------------------------------------
 
 Method:          GET
@@ -237,9 +240,12 @@ Response Output;
 Sample Capture;
 ![capture-for-retrieve-all](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/ScreenShots/02_RETRIEVE_ALL_CUSTOMERS.PNG)
 
+[Go back to: Section 5](#5-testing-and-incoming-outgoing-json-samples)
+[Go back to TOC](#toc)
 
 
-5-3 Retrieve Customer
+
+5-c Retrieve Customer
 ---------------------
 
 Method:          GET
@@ -268,8 +274,12 @@ Response Output;
 Sample Capture;
 ![capture-for-retrieve-single-customer](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/ScreenShots/03_RETRIEVE_SINGLE_CUSTOMER.PNG)
 
+[Go back to: Section 5](#5-testing-and-incoming-outgoing-json-samples)
+[Go back to TOC](#toc)
 
-5-4 Create Customer
+
+
+5-d Create Customer
 -------------------
 
 Method:          POST
@@ -358,9 +368,12 @@ Sample Capture;
 ![capture-for-create-customer-a](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/ScreenShots/04_A_CREATE_CUSTOMER.PNG)
 ![capture-for-create-customer-b](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/ScreenShots/04_B_CREATE_CUSTOMER.PNG)
 
+[Go back to: Section 5](#5-testing-and-incoming-outgoing-json-samples)
+[Go back to TOC](#toc)
 
 
-5-5 Update Customer
+
+5-e Update Customer
 -------------------
 
 Method:          PUT
@@ -447,9 +460,12 @@ Sample Capture;
 ![capture-for-update-customer-a](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/ScreenShots/05_A_UPDATE_CUSTOMER.PNG)
 ![capture-for-update-customer-b](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/ScreenShots/05_B_UPDATE_CUSTOMER.PNG)
 
+[Go back to: Section 5](#5-testing-and-incoming-outgoing-json-samples)
+[Go back to TOC](#toc)
 
 
-5-6 Delete Customer
+
+5-f Delete Customer
 -------------------
 
 Method:          DELETE
@@ -509,4 +525,5 @@ Sample Capture;
 ![capture-for-delete-customer-a](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/ScreenShots/06_A_DELETE_CUSTOMER.PNG)
 ![capture-for-delete-customer-b](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/ScreenShots/06_B_DELETE_CUSTOMER.PNG)
 
+[Go back to: Section 5](#5-testing-and-incoming-outgoing-json-samples)
 [Go back to TOC](#toc)
