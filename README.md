@@ -74,19 +74,28 @@ for any arbitrary model;
 
 Using Config Manager
 --------------------
-Placeholder
-Placeholder
-Placeholder
-Placeholder
-Placeholder
-Placeholder
-Placeholder
-Placeholder
-Placeholder
-Placeholder
-Placeholder
-Placeholder
-Placeholder
+The configuration must always abstracted via a properties file. But in order to do so, the property file(s)
+must be read via a configuration manager. I've created my own configuration manager and actually it is a
+simple example of [Gang Of Four Singleton Design Pattern](https://en.wikipedia.org/wiki/Singleton_pattern).
+
+If you want to understand the Config Manager in detail, you can check out my [Config Manager Repository](https://github.com/bzdgn/singleton-configuration-manager-example).
+
+Config Manager is easy to use. It assumes either you are using an environmental variable to store the properties
+file including log4j properties file, or config files are located on the working directory. It's always
+a good practice to define an environmental variable so that the portability of the configuration will
+become easier.
+
+To use ConfigManager with an environmental variable
+
+1. Set up an environmental variable and point it to a directory
+2. Put your properties file and your log4j properties file on the defined directory
+3. Define the configuration parameter in your ConfigManager class
+
+That's all. Then you can get your configuration parameters easily from any class file.
+
+To set up the environmental variable in windows, simply follow these steps;
+
+1. 
 
 [Go back to TOC](#toc)
 
