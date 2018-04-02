@@ -184,6 +184,7 @@ customer-api is working.
 ```
 
 Sample Capture;
+
 ![capture-for-test](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/ScreenShots/01_TEST.PNG)
 
 [Go back to Section 5](#5-testing-and-incoming-outgoing-json-samples) <br/>
