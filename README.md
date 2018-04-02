@@ -27,33 +27,42 @@ Entry Point
 -----------
 Starting grizzly standalone web server is quite easy. First you have to create a simple instance of
 Server that which you configure the controller packages and the URI of your server. You can check
-out the [Server class](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/src/main/java/com/levent/webservice/main/Server.java) and the [EntryPoint](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/src/main/java/com/levent/webservice/main/EntryPoint.java), it's pretty straight forward.
+out the [Server](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/src/main/java/com/levent/webservice/main/Server.java) class and the [EntryPoint](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/src/main/java/com/levent/webservice/main/EntryPoint.java), it's pretty straight forward.
 
-Just in case, note that I've used [ConfigManager class](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/src/main/java/com/levent/webservice/configuration/ConfigManager.java) in the [Server](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/src/main/java/com/levent/webservice/main/Server.java) class so that instead of hardcoding
+Just in case, note that I've used [ConfigManager](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/src/main/java/com/levent/webservice/configuration/ConfigManager.java) class in the [Server](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/src/main/java/com/levent/webservice/main/Server.java) class so that instead of hardcoding
 the Endpoint URI, I grab the endpoint from the properties file via the [ConfigManager class](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/src/main/java/com/levent/webservice/configuration/ConfigManager.java).
 
 There are two main straight-forward classes that you have to understand how an HTTP Server initialized;
 
 1. [Server class](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/src/main/java/com/levent/webservice/main/Server.java)
-2. [EntryPoint class(https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/src/main/java/com/levent/webservice/main/EntryPoint.java)
+2. [EntryPoint class](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/src/main/java/com/levent/webservice/main/EntryPoint.java)
 
 [Go back to TOC](#toc)
 
 Repository
 ----------
-Placeholder
-Placeholder
-Placeholder
-Placeholder
-Placeholder
-Placeholder
-Placeholder
-Placeholder
-Placeholder
-Placeholder
-Placeholder
-Placeholder
-Placeholder
+Any repository implementation regardless of the storage (File, Socket, Database) must have the following basic operations;
+
+1. ```T find(long id)```
+2. ```List<T> findAll()```
+3. ```T create(T t)```
+4. ```boolean update(T t)```
+5. ```boolean delete(long id)```
+
+Thus, I've created a simple interface named as [BaseRepository].
+
+```
+public interface BaseRepository<T> {
+	
+	T find(long id) throws Exception;
+	List<T> findAll() throws Exception;
+	T create(T t) throws Exception;
+	boolean update(T t) throws Exception;
+	boolean delete(long id) throws Exception;
+	
+}
+```
+
 
 [Go back to TOC](#toc)
 

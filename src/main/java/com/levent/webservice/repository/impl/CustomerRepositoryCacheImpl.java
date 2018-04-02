@@ -1,11 +1,11 @@
-package com.levent.webservice.model.repository.impl;
+package com.levent.webservice.repository.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 
 import com.levent.webservice.model.Customer;
-import com.levent.webservice.model.repository.CustomerRepository;
+import com.levent.webservice.repository.CustomerRepository;
 
 public class CustomerRepositoryCacheImpl implements CustomerRepository {
 	

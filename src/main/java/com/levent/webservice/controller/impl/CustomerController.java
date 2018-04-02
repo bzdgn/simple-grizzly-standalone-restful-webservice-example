@@ -16,14 +16,14 @@ import org.apache.log4j.Logger;
 
 import com.levent.webservice.logging.LogBase;
 import com.levent.webservice.model.Customer;
-import com.levent.webservice.model.repository.CustomerRepository;
-import com.levent.webservice.model.repository.impl.CustomerRepositoryCacheImpl;
 import com.levent.webservice.model.response.CustomerData;
 import com.levent.webservice.model.response.CustomerPayloadResponse;
 import com.levent.webservice.model.response.CustomerResponse;
 import com.levent.webservice.model.response.ErrorData;
 import com.levent.webservice.model.response.ErrorType;
 import com.levent.webservice.model.response.Meta;
+import com.levent.webservice.repository.CustomerRepository;
+import com.levent.webservice.repository.impl.CustomerRepositoryCacheImpl;
 
 @Path("/customer-api")
 public class CustomerController {

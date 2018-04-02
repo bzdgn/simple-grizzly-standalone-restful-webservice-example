@@ -1,4 +1,4 @@
-package com.levent.webservice.model.repository;
+package com.levent.webservice.repository;
 
 import com.levent.webservice.model.Customer;
 
