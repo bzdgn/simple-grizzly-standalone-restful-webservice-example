@@ -49,7 +49,7 @@ Any repository implementation regardless of the storage (File, Socket, Database)
 4. ```boolean update(T t)```
 5. ```boolean delete(long id)```
 
-Thus, I've created a simple interface named as [BaseRepository].
+Thus, I've created a simple interface named as [BaseRepository](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/src/main/java/com/levent/webservice/repository/BaseRepository.java) which is as follows;
 
 ```
 public interface BaseRepository<T> {
@@ -63,6 +63,12 @@ public interface BaseRepository<T> {
 }
 ```
 
+The [CustomerRepository](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/src/main/java/com/levent/webservice/repository/CustomerRepository.java) interface, like all arbitrary repositories, extends this interface. Because that the interface
+is using generics, any model class can be used for any arbitrary implementation. So In order to create a specific interface
+for any arbitrary model;
+
+1. Create the interface which extends the [BaseRepository](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/src/main/java/com/levent/webservice/repository/BaseRepository.java) (eg: [CustomerRepository](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/src/main/java/com/levent/webservice/repository/CustomerRepository.java))
+2. Implement the specific interface (eg: [CustomerRepositoryCacheImpl](https://github.com/bzdgn/simple-grizzly-standalone-restful-webservice-example/blob/master/src/main/java/com/levent/webservice/repository/impl/CustomerRepositoryCacheImpl.java))
 
 [Go back to TOC](#toc)
 
